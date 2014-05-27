@@ -16,6 +16,8 @@ For the completion of this project I used the following technologies:
 * PostgreSQL
 * HTML5
 * CSS3
+* jQuery
+* JavaScript
 
 About Makers Academy
 -----------
