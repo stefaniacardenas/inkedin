@@ -9,13 +9,6 @@ describe 'Instagram Homepage'  do
 			expect(page).to have_content('No posts yet')
 			expect(page).to have_content('Welcome to Instagram!')
 		end
-	
-		
-		it 'should have a upload button' do
-			visit '/' 
-			expect(page).to have_button('New post')
-		end
-	end
 
 	context "when adding a new post" do
 
