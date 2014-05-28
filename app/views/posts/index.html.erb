@@ -1,1 +1,37 @@
 <%= render 'form' %>
+
+<html>
+<head>
+	<title>Instagram</title>
+</head>
+<body>
+
+	Welcome to Instagram!
+	
+	<button> New post </button>
+
+	<div class= "New post">
+
+		<% if @posts.none? %>
+			
+			No posts yet
+		
+		<%else%>
+			
+			<% @posts.each do |post| %>
+				
+				<h2><%= post.title %></h2>
+				<p><%= post.description %></p>
+			
+				<% end %>
+			
+			<% end %>
+		
+		</div>
+
+	 <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+
+</body>
+</html>
