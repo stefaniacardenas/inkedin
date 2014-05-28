@@ -20,11 +20,18 @@
 				
 				<h2><%= post.title %></h2>
 				<p><%= post.description %></p>
+				<%= image_tag post.picture.url, class: 'uploaded-pic' %>
 			
 				<% end %>
 			
 			<% end %>
 		
+		</div>
+
+		<div>
+
+
+
 		</div>
 
 	 <p class="notice"><%= notice %></p>
