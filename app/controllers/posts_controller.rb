@@ -13,9 +13,23 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(params[:post].permit(:title, :description, :picture))
-			if @post.save
-			redirect_to '/'
-		end
+		@post.user == current_user
+		@post.save!
+
+		redirect_to posts_path
+	end
+
+
+	def destroy
+		@post = current_user.posts.find params[:id]
+		@post.destroy
+		
+		flash[:notice] = 'Successfully deleted'
+
+		rescue ActiveRecord::RecordNotFound
+			flash[:alert] = 'This is not your post!'
+		ensure
+			redirect_to '/posts'
 	end
 
 end
