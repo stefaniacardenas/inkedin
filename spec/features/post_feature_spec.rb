@@ -17,7 +17,7 @@ describe 'Instagram Homepage'  do
 
 			it 'prompts us to sign in' do
 				visit '/posts'
-				click_button 'New post'
+				click_link 'New post'
 				expect(page).to have_content 'Sign in'
 			end
 		end
@@ -27,6 +27,7 @@ describe 'Instagram Homepage'  do
 
 			before do 
 				user = User.create(email: 'stefania@a.com', password: '12345678', password_confirmation: '12345678')
+				login_as user
 
 				it 'should add a post to the index' do
 					visit '/posts'
@@ -41,6 +42,8 @@ describe 'Instagram Homepage'  do
 				end
 			end
 		end
+
+
 	end
 
 end
