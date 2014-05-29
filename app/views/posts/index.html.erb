@@ -17,11 +17,14 @@
 				<h2><%= post.title %></h2>
 				<p><%= post.description %></p>
 				<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-				<%= link_to 'Delete' , post_path(post), method: :delete %>
+
+				<% if post.user == current_user %>
+					<%= link_to 'Delete' , post_path(post), method: :delete %>
+				<%end%>
 			
-				<% end %>
+				<%end%>
 			
-			<% end %>
+			<%end%>
 
 
 			

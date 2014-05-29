@@ -75,10 +75,16 @@ describe 'Instagram Homepage'  do
 
 			it 'is not removed from the posts page' do 
 				visit '/posts'
-				click_link 'Delete'
 
 				expect(page).to have_content("Sam's pic")
 			end
+
+			it 'shows no delete link' do 
+				visit '/posts'
+				
+				expect(page).not_to have_link("Delete")
+			end
+
 		end
 
 
