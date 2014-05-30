@@ -18,13 +18,14 @@
 
  .jumbotron {
  	background: image-url('collage.jpg');
- 	padding-top: 50px;
+ 	padding-top: 63px;
  }
 
  .jumbotron .container {
  	background: rgba(46, 43, 43, 0.90);
  	width: 80%;
  	padding-top: 1%;
+ 	border-radius: 25px;
  }
 
  /* the 'a' in rgba stands for transparency, so in this case we are giving it 0.85 transparency*/ 
