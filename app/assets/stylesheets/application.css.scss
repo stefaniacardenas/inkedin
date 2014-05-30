@@ -19,3 +19,22 @@
  .jumbotron {
  	background: image-url('collage.jpg')
  }
+
+ .jumbotron .container {
+ 	background: rgba(255, 255, 255, 0.90);
+ 	width: 90%;
+ }
+
+ /* the 'a' in rgba stands for transparency, so in this case we are giving it 0.85 transparency*/ 
+
+.jumbotron p {
+	margin-bottom: 40px;
+	font-size: 21px;
+	font-weight: 200;
+}
+
+h1 {
+	margin-top: 20px;
+	margin-bottom: 18px;
+}
+
