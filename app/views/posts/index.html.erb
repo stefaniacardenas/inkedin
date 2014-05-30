@@ -1,8 +1,14 @@
-<%= render 'form' %>
-
 <body>
 
-	Welcome to Flickagram!
+	<div class="jumbotron">
+    <div class="container">
+      <h1>Flickagram</h1>
+      <p>Share pictures, follow your friends and never miss a trend! </p>
+      <p><a class="btn btn-primary btn-lg" role="button">Get started! &raquo;</a></p>
+    </div>
+	 </div>
+
+  <%= render 'form' %>
 
 	<div class= "New post">
 
@@ -23,6 +29,17 @@
 				<%end%>
 			
 				<%end%>
+			
+			<%end%>
+
+			<% if user_signed_in? %>
+
+				<%= link_to('Logout', destroy_user_session_path, :method => :delete ) %>
+			
+			<%else%>
+
+				<%= link_to('Sign in', new_user_session_path ) %>
+				<%= link_to('Register', new_user_registration_path ) %>
 			
 			<%end%>
 

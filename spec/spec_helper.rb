@@ -13,7 +13,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 include Warden::Test::Helpers
-Warden.test_mode! 
+Warden.test_mode!
+AWS.stub! 
 
 
 RSpec.configure do |config|
