@@ -17,12 +17,14 @@
  @import 'bootstrap';
 
  .jumbotron {
- 	background: image-url('collage.jpg')
+ 	background: image-url('collage.jpg');
+ 	padding-top: 50px;
  }
 
  .jumbotron .container {
- 	background: rgba(255, 255, 255, 0.90);
- 	width: 90%;
+ 	background: rgba(46, 43, 43, 0.90);
+ 	width: 80%;
+ 	padding-top: 1%;
  }
 
  /* the 'a' in rgba stands for transparency, so in this case we are giving it 0.85 transparency*/ 
@@ -36,5 +38,13 @@
 h1 {
 	margin-top: 20px;
 	margin-bottom: 18px;
+}
+
+.jumbotron h1, .jumbotron .h1 {
+	color: whitesmoke;
+}
+
+.jumbotron p {
+	color: whitesmoke;
 }
 
