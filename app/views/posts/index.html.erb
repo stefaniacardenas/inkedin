@@ -15,46 +15,43 @@
 	<div class= "New post">
 
 		<% if @posts.none? %>
-			
 			No posts yet
-		
-		<%else%>
-			
-			<% @posts.each do |post| %>
-				
-				<h2><%= post.title %></h2>
-				<p><%= post.description %></p>
-				<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
 
-				<% if post.user == current_user %>
-					<%= link_to 'Delete' , post_path(post), method: :delete %>
-				<%end%>
-			
-				<%end%>
-			
-			<%end%>
+		<%else%>
+
+		<div class="row">
+
+			<% @posts.each do |post| %>
+
+				<div class="col-md-4">
+
+					<h2><%= post.title %></h2>
+					<p><%= post.description %></p>
+					<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
+
+					<% if post.user == current_user %>
+						<%= link_to 'Delete' , post_path(post), method: :delete %>
+					<%end%>
+				</div>
+			<%end%>	
+		</div>
+		<%end%>
 
 			<% if user_signed_in? %>
-
 				<%= link_to('Logout', destroy_user_session_path, :method => :delete ) %>
-			
+
 			<%else%>
 
 				<%= link_to('Sign in', new_user_session_path ) %>
-				<%= link_to('Register', new_user_registration_path ) %>
-			
+				<%= link_to('Register', new_user_registration_path ) %>	
 			<%end%>
 
-
-			
 			No posts yet
 		
 		</div>
 
 		<div>
-
 			 <%= link_to 'New post', new_post_path %>
-
 		</div>
 
 	 <p class="notice"><%= notice %></p>
