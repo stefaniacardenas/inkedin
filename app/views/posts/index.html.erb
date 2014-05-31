@@ -10,8 +10,6 @@
     </div>
 	 </div>
 
-  <%= render 'form' %>
-
 	<div class= "New post">
 
 		<% if @posts.none? %>
@@ -45,14 +43,10 @@
 				<%= link_to('Sign in', new_user_session_path ) %>
 				<%= link_to('Register', new_user_registration_path ) %>	
 			<%end%>
-
-			No posts yet
 		
 		</div>
 
-		<div>
-			 <%= link_to 'New post', new_post_path %>
-		</div>
+		<%= link_to 'New post', new_post_path, class: "btn btn-success" %>
 
 	 <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
