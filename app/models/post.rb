@@ -11,7 +11,11 @@ class Post < ActiveRecord::Base
 		#Rails.application.etc grabs our keys from secret.yml
 	}
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+	belongs_to :user
+	has_and_belongs_to_many :tags
 
-  belongs_to :user 
+	def tag_names
+		''
+	end 
 
 end

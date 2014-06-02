@@ -86,10 +86,9 @@ describe 'Flickagram Index'  do
 		end
 
 		it 'shows no delete button when no user are logged in' do
-
-				visit '/posts'
-				expect(page).not_to have_button("Delete")
-			end
+			visit '/posts'
+			expect(page).not_to have_button("Delete")
+		end
 
 	end
 end
