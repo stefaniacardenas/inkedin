@@ -19,11 +19,20 @@ describe Post do
 				expect(post.tags.count).to eq 1
 			end
 
-			it 'prepends the tags with a #' do
+			it 'prepends the tags with a # if necessary' do
 				post.tag_names = 'cute'
 				tag = post.tags.last
 				expect(tag.name).to eq '#cute'
 			end
+
+				it 'does not double up #s' do
+				post.tag_names = '#cute'
+
+				tag = post.tags.last
+
+				expect(tag.name).to eq '#cute'
+			end
+
 		end
 
 		end
