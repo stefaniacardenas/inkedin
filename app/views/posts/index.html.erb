@@ -1,15 +1,5 @@
 <body>
 
-	<div class="jumbotron">
-    <div class="container">
-      <h1>Flickagram</h1>
-      <p>Share pictures, follow your friends and never miss a trend! </p>
-      <p>
-      	<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary btn-lg" %>
-      </p>
-    </div>
-	 </div>
-
 	<div class= "New post">
 
 		<% if @posts.none? %>
@@ -34,6 +24,7 @@
 					    	<% if post.user == current_user %>
 					    		<%= link_to 'Delete' , post_path(post), method: :delete, class: "btn btn-lg btn-danger" %>
 								<%end%>
+
 									<%= link_to 'Show More' , '#', class: "btn btn-lg btn-info", data: { toggle: 'modal', target: ".image-modal-#{post.id}"} %>
 							</div>
 					  </div>

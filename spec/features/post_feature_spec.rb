@@ -1,13 +1,12 @@
 require 'spec_helper'
 
-describe 'Instagram Homepage'  do
+describe 'Flickagram Index'  do
 
 	context "when empty" do
 		
 		it 'should display no posts' do
-			visit '/' 
+			visit '/posts' 
 			expect(page).to have_content('No posts yet')
-			expect(page).to have_content('Flickagram')
 		end
 	end
 
@@ -79,13 +78,18 @@ describe 'Instagram Homepage'  do
 				expect(page).to have_content("Sam's pic")
 			end
 
-			it 'shows no delete link' do 
+			it 'shows no delete button' do
 				visit '/posts'
-				expect(page).not_to have_link("Delete")
+				expect(page).not_to have_button("Delete")
 			end
 
 		end
 
+		it 'shows no delete button when no user are logged in' do
+
+				visit '/posts'
+				expect(page).not_to have_button("Delete")
+			end
 
 	end
 end
