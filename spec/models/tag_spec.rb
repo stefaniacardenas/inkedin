@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Tag do
-  pending "add some examples to (or delete) #{__FILE__}"
+	it 'should be unique' do 
+		Tag.create(name: '#cute')
+		duplicate = Tag.new(name: '#cute')
+
+		expect(duplicate).to have(1).error_on(:name)
+	end
 end

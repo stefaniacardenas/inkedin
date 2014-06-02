@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
 	def tag_names=(tag_names)
 		return if tag_names.blank?
 
-		tag_names.split(', ').each do |tag_name|
+		tag_names.split(', ').uniq.each do |tag_name|
 			formatted_name = '#' + tag_name.delete('#')
 			tag = Tag.find_or_create_by(name: formatted_name)
 			tags << tag

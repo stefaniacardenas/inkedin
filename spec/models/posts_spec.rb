@@ -40,6 +40,13 @@ describe Post do
 			end
 		end
 
+		describe 'multiple duplicate tags' do 
+			it 'uses only unique tags' do 
+				post.tag_names = 'cute, kitten, cute'
+				expect(post.tags.count).to eq 2
+			end
+		end
+
 		describe 'reusing tags' do 
 			let!(:tag) { Tag.create(name: '#cute') }
 
