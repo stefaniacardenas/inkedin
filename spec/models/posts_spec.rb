@@ -11,6 +11,7 @@ describe Post do
 				post.tag_names = ''
 				expect(post.tags).to be_empty
 			end
+		end
 
 		describe 'with one tags' do 
 			
@@ -25,16 +26,31 @@ describe Post do
 				expect(tag.name).to eq '#cute'
 			end
 
-				it 'does not double up #s' do
+			it 'does not double up #s' do
 				post.tag_names = '#cute'
-
 				tag = post.tags.last
-
 				expect(tag.name).to eq '#cute'
 			end
-
 		end
 
+		describe 'multiple comma-separated tags' do 
+			it 'adds each tag to the post' do 
+				post.tag_names = 'cute, kitten'
+				expect(post.tags.count).to eq 2
+			end
 		end
+
+		describe 'reusing tags' do 
+			let!(:tag) { Tag.create(name: '#cute') }
+
+			it 'reuses tags if they exist' do
+				post.tag_names = 'cute'
+				expect(Tag.count).to eq 1
+
+				expect(tag.posts).to include post
+			end
+		end
+
+
 	end
 end
