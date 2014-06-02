@@ -7,7 +7,7 @@ describe 'Instagram Homepage'  do
 		it 'should display no posts' do
 			visit '/' 
 			expect(page).to have_content('No posts yet')
-			expect(page).to have_content('Welcome to Flickagram!')
+			expect(page).to have_content('Flickagram')
 		end
 	end
 
@@ -31,7 +31,7 @@ describe 'Instagram Homepage'  do
 			end
 
 			it 'should add a post to the index' do
-				visit '/posts'
+				visit '/posts/new'
 				fill_in 'Description', with: 'My cat Negrita'
 				fill_in 'Title', with: 'cat'
 				attach_file 'Picture', Rails.root.join('public/images/cat.jpg')
@@ -81,7 +81,6 @@ describe 'Instagram Homepage'  do
 
 			it 'shows no delete link' do 
 				visit '/posts'
-				
 				expect(page).not_to have_link("Delete")
 			end
 
