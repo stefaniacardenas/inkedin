@@ -48,9 +48,9 @@ describe 'Flickagram Index'  do
 		context 'my post' do 
 
 			before do 
-				Stefania = User.create(email: 'stefania@a.com', password: '12345678', password_confirmation: '12345678')
+				Stefania = create(:user)
 				login_as Stefania
-				Post.create(title: 'Hello', description: 'World', user: Stefania)
+				create(:post, user: Stefania)
 			end
 
 			it 'is removed from the posts page' do 
@@ -64,9 +64,9 @@ describe 'Flickagram Index'  do
 		context "someone else's posts" do 
 
 			before do 
-				Stefania = User.create(email: 'stefania@a.com', password: '12345678', password_confirmation: '12345678')
-				Sam = User.create(email: 'sam@a.com', password: '12345678', password_confirmation: '12345678')
-				Post.create(title: "Sam's pic", description: 'test', user: Sam)
+				Stefania = create(:user)
+				Sam = create(:user, email: 'sam@a.com')
+				create(:post, user: Sam )
 
 				login_as Stefania
 

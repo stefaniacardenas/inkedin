@@ -4,14 +4,15 @@ describe 'Flickagram Home'  do
 
 	context 'when a user is not logged in' do 
 
-		it 'should be desplayed' do
+		it 'the homepage should be desplayed' do
 			visit '/'
 			expect(page).to have_content('Flickagram')
 		end
 
-			it 'Should be desplayed' do
+			it 'has a sign up button' do
 			visit '/'
-			expect(page).to have_content('Flickagram')
+			click_link('Sign Up')
+			expect(current_path).to eq '/users/sign_up'
 		end
 
 	end
