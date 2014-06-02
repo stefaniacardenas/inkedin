@@ -2,18 +2,13 @@ class PostsController < ApplicationController
 
 	before_action :authenticate_user!, except: [:index]
 
-	def new
-		@post = Post.new
-
-	end
-
 	def index
 		@posts = Post.all
 	end
 
 	def create
 		@post = Post.new(params[:post].permit(:title, :description, :picture))
-		@post.user == current_user
+		@post.user = current_user
 		@post.save!
 
 		redirect_to posts_path
@@ -27,9 +22,13 @@ class PostsController < ApplicationController
 		flash[:notice] = 'Successfully deleted'
 
 		rescue ActiveRecord::RecordNotFound
-			flash[:alert] = 'This is not your post!'
+			flash[:alert] = "You are not allowed to delete someone's else posts!"
 		ensure
-			redirect_to '/posts'
+		redirect_to '/posts'
+	end
+
+	def new
+		@post = Post.new
 	end
 
 end

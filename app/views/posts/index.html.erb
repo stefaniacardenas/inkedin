@@ -21,19 +21,42 @@
 
 			<% @posts.each do |post| %>
 
-				<div class="col-md-4">
-
-					<h2><%= post.title %></h2>
-					<p><%= post.description %></p>
-					<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-
-					<% if post.user == current_user %>
-						<%= link_to 'Delete' , post_path(post), method: :delete %>
-					<%end%>
+				<div class="col-sm-4">
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title"><%= post.title %></h3>
+					  </div>
+					  <div class="panel-body">
+					    <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
+					    <p><%= post.description %></p>
+					    
+					    <div class="buttons">
+					    	<% if post.user == current_user %>
+					    		<%= link_to 'Delete' , post_path(post), method: :delete, class: "btn btn-lg btn-danger" %>
+								<%end%>
+									<%= link_to 'Show More' , '#', class: "btn btn-lg btn-info", data: { toggle: 'modal', target: ".image-modal-#{post.id}"} %>
+							</div>
+					  </div>
+					</div>
+				</div>
+				<div class="modal fade image-modal-<%= post.id %>">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel"><%= post.title %></h4>
+				      </div>
+				      <div class='modal-body'>
+				      	<%= image_tag post.picture.url %>
+				      </div>
+				    </div>
+				  </div>
 				</div>
 			<%end%>	
 		</div>
 		<%end%>
+
+		
 
 			<% if user_signed_in? %>
 				<%= link_to('Logout', destroy_user_session_path, :method => :delete ) %>
@@ -43,7 +66,7 @@
 				<%= link_to('Sign in', new_user_session_path ) %>
 				<%= link_to('Register', new_user_registration_path ) %>	
 			<%end%>
-		
+
 		</div>
 
 		<%= link_to 'New post', new_post_path, class: "btn btn-success" %>
