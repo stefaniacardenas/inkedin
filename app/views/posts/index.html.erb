@@ -1,23 +1,25 @@
 <body>
 
 	<div class= "New post">
-
+		
 		<% if @posts.none? %>
 			No posts yet
 
 		<%else%>
+
 			<div class='row'>
 				<%= render @posts %>
 			</div>
+
 		<%end%>
-	
 	</div>
 		
-
 	</div>
 
 		<%= link_to 'New post', new_post_path, class: "btn btn-success" %>
 
 	 <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
+
+</body>
 

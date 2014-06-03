@@ -13,6 +13,8 @@
 				<%end%>
 
 					<%= link_to 'Show More' , '#', class: "btn btn-lg btn-info", data: { toggle: 'modal', target: ".image-modal-#{post.id}"} %>
+					<%= link_to "❤ #{post.likes.count}", post_likes_path(post), method: :post, class: "btn btn-lg btn-default btn-like" %>
+				
 				<p>
 					<% post.tags.each do |tag|%>
 					<%= link_to tag.name,tag_path(tag) %>
