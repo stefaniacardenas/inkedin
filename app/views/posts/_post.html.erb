@@ -1,0 +1,38 @@
+<div class="col-sm-4">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title"><%= post.title %></h3>
+	  </div>
+	  <div class="panel-body">
+	    <%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
+	    <p><%= post.description %></p>
+	    
+	    <div class="buttons">
+	    	<% if post.user == current_user %>
+	    		<%= link_to 'Delete' , post_path(post), method: :delete, class: "btn btn-lg btn-danger" %>
+				<%end%>
+
+					<%= link_to 'Show More' , '#', class: "btn btn-lg btn-info", data: { toggle: 'modal', target: ".image-modal-#{post.id}"} %>
+				<p>
+					<% post.tags.each do |tag|%>
+					<%= link_to tag.name,tag_path(tag) %>
+					<%end%>
+				</p>
+
+			</div>
+	  </div>
+	</div>
+</div>
+<div class="modal fade image-modal-<%= post.id %>">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><%= post.title %></h4>
+      </div>
+      <div class='modal-body'>
+      	<%= image_tag post.picture.url %>
+      </div>
+    </div>
+  </div>
+</div>
