@@ -20,16 +20,28 @@ describe 'tagging posts' do
 		expect(page).to have_link '#cat'
 	end
 
-	it 'can filter posts by tags' do 
-		create(:post, title: 'Pic1', tag_names: 'yolo')
-		create(:post, title: 'Pic2', tag_names: 'swag')
+	describe 'filtering posts by tags' do
+		
+		before do
+			create(:post, title: 'Pic1', tag_names: 'yolo')
+			create(:post, title: 'Pic2', tag_names: 'swag')
+			visit '/posts'
+		end
 
-		visit '/posts'
-		click_link '#yolo'
-		expect(page).to have_css 'h1', text: 'Posts tagged with #yolo'
-		expect(page).to have_content 'Pic1'
-		expect(page).not_to have_content 'Pic2'
+		it 'uses the tag name in the url' do
+			click_link '#yolo'
+
+			expect(current_path).to eq '/tags/yolo'
+		end
+
+		it 'only shows posts with the selected tag' do
+			click_link '#yolo'
+
+			expect(page).to have_css 'h1', text: 'Posts tagged with #yolo'
+			expect(page).to have_content 'Pic1'
+			expect(page).not_to have_content 'Pic2'
+		end
+
 	end
-
 
 end
