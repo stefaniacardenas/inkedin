@@ -40,6 +40,13 @@ describe Post do
 			end
 		end
 
+		context 'without spaces' do 
+			it 'adds each tag to the post' do 
+				post.tag_names = 'cute,cat'
+				expect(post.tags.count).to eq 2
+			end
+		end
+
 		describe 'multiple duplicate tags' do 
 			it 'uses only unique tags' do 
 				post.tag_names = 'cute, kitten, cute'
