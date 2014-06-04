@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-tagsinput
+//= require websocket_rails/main
 //= require_tree .
+
 
