@@ -67,4 +67,28 @@ h2 {
 	max-width: 100%;
 }
 
+.navbar .container {
+	padding-right: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	width: 100%;
+	padding-left: 0px;
+	padding-bottom: 1%;
+	border-bottom-width: 1%;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: normal;
+	color: whitesmoke;
+}
+
+.navbar-inverse .navbar-brand {
+	color: whitesmoke;
+	font-size: 20px;
+
+}
+
 
