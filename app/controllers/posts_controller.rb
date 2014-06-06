@@ -4,10 +4,11 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		@comment = Comment.new
 	end
 
 	def create
-		@post = Post.new(params[:post].permit(:title, :description, :picture, :tag_names))
+		@post = Post.new(params[:post].permit(:title, :description, :picture, :tag_names, :comment))
 		@post.user = current_user
 		@post.save!
 

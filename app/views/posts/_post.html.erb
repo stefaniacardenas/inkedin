@@ -21,6 +21,14 @@
 					<%end%>
 				</p>
 
+			<div class="comment-form">
+				<label for="comment">Comment</label>
+				<%= form_for [post, @comment] do |f| %>
+				  <%= f.text_area :body %>
+				  <%= f.submit "Post" %>
+				<% end %>	
+			</div>
+
 			</div>
 	  </div>
 	</div>
