@@ -36,7 +36,7 @@ gem 'nokogiri'
 
 
 
-gem 'rspec',  group: :test
+gem 'rspec', '~> 3.0.0',  group: :test
 gem 'capybara'
 gem 'rspec-rails'
 gem 'factory_girl_rails'

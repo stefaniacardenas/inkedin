@@ -7,6 +7,6 @@ class Tag < ActiveRecord::Base
 	end
 
 	# The method above is a rails method to use the name of the tag
-	# in the url so we can get localhost:3000/tags/yolo
+	# in the url so we can get localhost:3000/tags/yolo instead of the id
 
 end

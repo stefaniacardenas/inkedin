@@ -31,6 +31,6 @@ class Post < ActiveRecord::Base
 			tags << tag
 			# tags.create(name: '#' + tag_name.delete('#'))
 		end
-	end 
+	end
 
 end

@@ -18,7 +18,7 @@
  @import 'bootstrap';
 
  .jumbotron {
- 	background: image-url('collage.jpg');
+ 	background: image-url('cameras.jpg');
  	padding-top: 63px;
  	padding-bottom: 10%;
  }
@@ -30,7 +30,9 @@
  	margin-top: 1%;
  	border-radius: 25px;
  }
-
+.row {
+	height: 40px;
+}
  /* the 'a' in rgba stands for transparency, so in this case we are giving it 0.85 transparency*/ 
 
 .jumbotron p {
@@ -76,8 +78,23 @@ label {
 
 }
 
-.navbar-inverse .navbar-brand {
+.form-control {
+	height: 28px;
+}
+
+.navbar-inverse {
+	height: 30px;
+}
+
+.navbar-brand {
 	color: whitesmoke;
 	font-size: 20px;
 }
 
+.btn-success {
+	color: white;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	height: 28px;
+	line-height: normal;
+}
