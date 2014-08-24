@@ -17,19 +17,21 @@
 
  @import 'bootstrap';
 
- .jumbotron {
+.jumbotron {
  	background: image-url('cameras.jpg');
  	padding-top: 63px;
  	padding-bottom: 10%;
+ 	margin-top: -7px;
  }
 
- .jumbotron .container {
+.jumbotron .container {
  	background: rgba(46, 43, 43, 0.90);
  	width: 80%;
  	padding-top: 1%;
  	margin-top: 1%;
  	border-radius: 25px;
- }
+}
+
 .row {
 	height: 40px;
 }
@@ -82,9 +84,12 @@ label {
 	height: 28px;
 }
 
-.navbar-container {
-	display: flex;
-	flex-grow: 2;
+.navbar-brand {
+	margin-left: 5%;
+}
+
+.navbar-form.navbar-right:last-child {
+	margin-right: 5%;
 }
 
 .btn-success {
@@ -93,4 +98,30 @@ label {
 	border-color: #4cae4c;
 	height: 28px;
 	line-height: normal;
+}
+
+body {
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.buttons {
+	float: right;
+	display: flex;
+	margin-right: 5%;
+}
+
+.navbar-fixed-top {
+	top: 0;
+	height: 14%;
+}
+
+.btn-danger {
+	color: white;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+	float: right;
+	margin-right: 5%;
+	margin-top: 10px;
 }
