@@ -1,8 +1,7 @@
-#Instagram
+#InkedIn
 ==========
 
-This is my second project with Ruby on Rails.
-It's a clone of Instagram.
+InkedIn is a social network that connects tattoo lovers and artists. It's a Ruby on Rails app based around the idea of Instagram. You can post photos on the website, use hashtags, comments, etc. This project is still work in progress.
 
 Technologies used
 -----------------
